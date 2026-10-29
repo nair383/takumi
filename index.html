@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>TAKUMI RESTAURANTE NIKKEI | Fusión Japonesa & Peruana</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Partículas de Fondo Estilo Oro -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navbar Elegante Sticky -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo-btn" title="Takumi Nikkei">
+        <div class="logo-kanji">匠</div>
+        <div class="logo-text">
+          <h1>TAKUMI</h1>
+          <span>NIKKEI</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="https://www.instagram.com/takumirestaurante.nikkei/" target="_blank" class="header-social-btn ig" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/56951605265" target="_blank" class="header-social-btn wsp" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <button id="cart-toggle-btn" class="cart-icon-btn" aria-label="Ver Carrito">
+          <i class="fas fa-shopping-basket"></i>
+          <span id="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section Móvil Optimizado -->
+  <section class="hero">
+    <div class="hero-content reveal">
+      <div class="hero-kanji">匠</div>
+      <span class="hero-subtitle">Cocina de Autor & Tradición Fusión</span>
+      <h2>TAKUMI RESTAURANTE</h2>
+      <div class="hero-divider">❖</div>
+      <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Dublé Almeyda 3141, Ñuñoa</p>
+      
+      <div class="hero-badges">
+        <div class="badge-item">
+          <i class="fas fa-star gold-text"></i>
+          <span><strong>5.0</strong> Google Maps</span>
+        </div>
+        <div class="badge-item">
+          <i class="fas fa-utensils gold-text"></i>
+          <span>Nikkei Experience</span>
+        </div>
+      </div>
+
+      <a href="#menu" class="hero-cta-btn">
+        <span>VER CARTA INTERACTIVA</span>
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Menú con Filtros -->
+  <main id="menu" class="container">
+    
+    <div class="section-header reveal">
+      <span class="pre-title">SELECCIÓN DE LA CASA</span>
+      <h3 class="section-title">Nuestra Carta</h3>
+    </div>
+
+    <!-- Filtros de Categoría Táctiles -->
+    <div class="category-filters reveal">
+      <button class="filter-btn active" onclick="filterCategory('todos', this)">Todos</button>
+      <button class="filter-btn" onclick="filterCategory('rolls', this)">Rolls</button>
+      <button class="filter-btn" onclick="filterCategory('ceviches', this)">Ceviches</button>
+      <button class="filter-btn" onclick="filterCategory('entradas', this)">Entradas</button>
+      <button class="filter-btn" onclick="filterCategory('bebidas', this)">Bebidas</button>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+
+      <!-- Producto 1 -->
+      <div class="product-card reveal" data-category="rolls">
+        <div class="product-tag">Firma</div>
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=80" alt="Roll Takumi Especial" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h4>Roll Takumi Especial</h4>
+          <p class="product-desc">Camarón furai crocante y palta en su punto, envuelto en láminas de atún fresco con salsa acevichada de autor y togarashi.</p>
+          <div class="product-bottom">
+            <span class="price">$12.900</span>
+            <button class="add-btn" onclick="addToCart('Roll Takumi Especial', 12900)">
+              <i class="fas fa-plus"></i> Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="product-card reveal" data-category="ceviches">
+        <div class="product-tag">Clásico</div>
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80" alt="Ceviche Nikkei Tradicional" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h4>Ceviche Nikkei Tradicional</h4>
+          <p class="product-desc">Cortes finos de pesca del día en leche de tigre al sésamo y shoyu, servido con camote glaseado y cancha chulpe.</p>
+          <div class="product-bottom">
+            <span class="price">$13.500</span>
+            <button class="add-btn" onclick="addToCart('Ceviche Nikkei Tradicional', 13500)">
+              <i class="fas fa-plus"></i> Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="product-card reveal" data-category="entradas">
+        <div class="product-tag">Recomendado</div>
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="Gyozas de Pulpo" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h4>Gyozas de Pulpo al Olivo</h4>
+          <p class="product-desc">5 empanadillas artesanales selladas a la plancha, rellenas de pulpo tierno y crema de aceitunas botija de Azapa.</p>
+          <div class="product-bottom">
+            <span class="price">$7.900</span>
+            <button class="add-btn" onclick="addToCart('Gyozas de Pulpo al Olivo', 7900)">
+              <i class="fas fa-plus"></i> Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="product-card reveal" data-category="entradas">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?auto=format&fit=crop&w=800&q=80" alt="Chicken Karaage" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h4>Chicken Karaage Crocante</h4>
+          <p class="product-desc">Bocados de muslo marinado en soya, jengibre fresco y sake, empanizados y fritos con acabado ultra crujiente.</p>
+          <div class="product-bottom">
+            <span class="price">$8.500</span>
+            <button class="add-btn" onclick="addToCart('Chicken Karaage Crocante', 8500)">
+              <i class="fas fa-plus"></i> Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="product-card reveal" data-category="bebidas">
+        <div class="product-tag">Artesanal</div>
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80" alt="Chicha Morada" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h4>Chicha Morada de la Casa (1L)</h4>
+          <p class="product-desc">Receta ancestral con maíz morado, piña, manzana, canela de olor y clavos. Servida sumamente fría.</p>
+          <div class="product-bottom">
+            <span class="price">$4.500</span>
+            <button class="add-btn" onclick="addToCart('Chicha Morada de la Casa (1L)', 4500)">
+              <i class="fas fa-plus"></i> Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Opiniones Verificadas -->
+    <section class="reviews-section reveal">
+      <div class="section-header">
+        <span class="pre-title"><i class="fab fa-google"></i> OPINIONES GOOGLE MAPS</span>
+        <h3 class="section-title">Lo que dicen de nosotros</h3>
+      </div>
+      
+      <div class="reviews-carousel">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="user-avatar">M</div>
+            <div>
+              <h5>Moisés Oropeza</h5>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"Espectacular.! Una joya que merece conocerse y hacía falta en esta zona. Pedimos Karaage, Gyozas y Bao. Tienen que probar la chicha morada ❤️"</p>
+          <span class="review-source"><i class="fab fa-google"></i> Google Maps</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <div class="user-avatar">V</div>
+            <div>
+              <h5>Vicmar Bandy</h5>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"Muy rico todo, un ambiente agradable y excelente atención. 10/10 🔥"</p>
+          <span class="review-source"><i class="fab fa-google"></i> Google Maps</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <div class="user-avatar">A</div>
+            <div>
+              <h5>Azul Moreno</h5>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"La mesera es muy amable, fue muy divertido compartir con ella. Si quieren comer algo rico cerca, vayan, no se van a arrepentir 🙏"</p>
+          <span class="review-source"><i class="fab fa-google"></i> Google Maps</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mapa Interactivo -->
+    <section class="map-section reveal">
+      <div class="section-header">
+        <span class="pre-title"><i class="fas fa-compass"></i> UBICACIÓN</span>
+        <h3 class="section-title">Dublé Almeyda 3141, Ñuñoa</h3>
+      </div>
+      <div class="map-wrapper">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.213271501724!2d-70.60155282342502!3d-33.456728000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf8375992983%3A0xb35a09baad9336d!2sDubl%C3%A9%20Almeyda%203141%2C%207750000%20%C3%91u%C3%B1oa%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl" 
+          width="100%" 
+          height="300" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sidebar Carrito Móvil -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-bag"></i> Tu Orden Nikkei</h3>
+      <button id="cart-close-btn" class="close-btn">&times;</button>
+    </div>
+    
+    <div id="cart-items" class="cart-items"></div>
+
+    <div class="cart-footer">
+      <div class="delivery-option">
+        <label for="order-type"><i class="fas fa-store"></i> Modalidad de entrega:</label>
+        <select id="order-type" class="custom-select">
+          <option value="Delivery a Domicilio">Delivery a Domicilio</option>
+          <option value="Retiro en Local (Dublé Almeyda 3141)">Retiro en Local (Ñuñoa)</option>
+        </select>
+      </div>
+
+      <div class="total-row">
+        <span>Total:</span>
+        <span id="cart-total">$0</span>
+      </div>
+
+      <button class="send-wsp-btn" onclick="sendOrderToWhatsApp()">
+        <i class="fab fa-whatsapp"></i> PEDIR POR WHATSAPP
+      </button>
+    </div>
+  </div>
+
+  <div id="cart-overlay" class="cart-overlay"></div>
+
+  <!-- Botón Flotante WSP Optimizado Mobile -->
+  <a href="https://wa.me/56951605265" target="_blank" class="wsp-float-btn" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <a href="#" class="footer-logo">
+        <span class="footer-kanji">匠</span>
+        <span>TAKUMI NIKKEI</span>
+      </a>
+      
+      <p class="footer-address">Dublé Almeyda 3141, Ñuñoa, Santiago</p>
+      
+      <div class="social-links">
+        <a href="https://www.instagram.com/takumirestaurante.nikkei/" target="_blank" aria-label="Instagram" class="social-btn ig"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/56951605265" target="_blank" aria-label="WhatsApp" class="social-btn wsp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+
+      <p class="copyright">&copy; 2026 Takumi Restaurante Nikkei.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
